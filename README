@@ -18,5 +18,3 @@ La raiz contiene dos directorios:
 - hardware contiene el proyecto para Vivado 2021.2.
 - software contiene la aplicación desarrollada con JUCE 7.0.5.
 - samples contiene muestras de audio grabadas en Ableton Live
-
-![Application](screenshot.png)
