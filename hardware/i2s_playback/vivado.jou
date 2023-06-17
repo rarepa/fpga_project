@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sun May  7 12:01:42 2023
+# Process ID: 20428
+# Current directory: C:/Users/MARIAJOSE/AppData/Roaming/Xilinx/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10860
+# Log file: C:/Users/MARIAJOSE/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file: C:/Users/MARIAJOSE/AppData/Roaming/Xilinx/Vivado\vivado.jou
+# Running On: LAPTOP-Q201NNK2, OS: Windows, CPU Frequency: 2208 MHz, CPU Physical cores: 6, Host memory: 17047 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/ETSINF/TFG/VIVADO/i2s_playback/i2s_playback.xpr
+update_compile_order -fileset sources_1
+archive_project D:/ETSINF/TFG/VIVADO/i2s_playback.xpr.zip -temp_dir C:/Users/MARIAJOSE/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-20428-LAPTOP-Q201NNK2 -force -exclude_run_results -include_local_ip_cache

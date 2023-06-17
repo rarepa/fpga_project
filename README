@@ -1,0 +1,22 @@
+# fpga_project
+
+TFG - Sintetizador de sonidos con FPGA, curso 2k22/2k23
+Se trata de un proyecto en el que se ha diseñado un sintetizador de sonidos para la placa Diligent Basys-3 FPGA con el módulo Pmod I2S2.
+El sintetizador consta de dos osciladores, con cuatro tipos de onda básicas que son seleccionables (sierra, triángulo, cuadrada y senoidal).
+Cada oscilador tiene los parámetros semitono, fine_tune, lfo, pulse_width y volumen.
+El ancho de pulso se puede modular si la onda seleccionada es la onda cuadrada.
+Hay un generador de envolventes de amplitud y una LFO (también con las cuatro ondas básicas) que modula la frecuencia (pitch) de cada oscilador.
+Se puede ajustar el efecto de portamento, pero solo a los osciladores que no estén siendo modulados por su LFO.
+Tiene filtros de paso bajo, alto, de banda y de rechazo de banda, con otra lfo para modular la frecuencia o la resonancia.
+Contiene una especie de generador de ruido pero es experimental, no es ni ruido blanco, ni rosa, etc.
+También contiene un efecto de distorsión Hard Clip, cuyo funcionamiento ha sido simulado y comprobado, pero no está conectado.
+Por otra parte se ha desarrollado una aplicación con una interfaz gráfica, con la ayuda del framework JUCE.
+Esta aplicación sirve para controlar la FPGA a través de UART y se puede compilar también en formato plugin.
+Su funcionamiento ha sido comprobado con Ableton Live 11.3.3 y la versión VST3.
+
+La raiz contiene dos directorios:
+- hardware contiene el proyecto para Vivado 2021.2.
+- software contiene la aplicación desarrollada con JUCE 7.0.5.
+- samples contiene muestras de audio grabadas en Ableton Live
+
+![alt text](https://github.com/rarepa/fpga_project/blob/master/screenshot.png?raw=true)
