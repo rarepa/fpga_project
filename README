@@ -14,7 +14,7 @@ Por otra parte se ha desarrollado una aplicación con una interfaz gráfica, con
 Esta aplicación sirve para controlar la FPGA a través de UART y se puede compilar también en formato plugin.
 Su funcionamiento ha sido comprobado con Ableton Live 11.3.3 y la versión VST3.
 
-La raiz contiene dos directorios:
+La raiz contiene los directorios:
 - hardware contiene el proyecto para Vivado 2021.2.
 - software contiene la aplicación desarrollada con JUCE 7.0.5.
 - samples contiene muestras de audio grabadas en Ableton Live
