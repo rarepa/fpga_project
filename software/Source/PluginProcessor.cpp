@@ -185,19 +185,21 @@ void PluginAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::
 						int type = midi_comp[id].second;
 						// actualizar el valor del componente
 						if (type == 2) {
-							juce::Slider* sl = (juce::Slider*)c;
-							const juce::MessageManagerLock mmLock;
 							if (c->getComponentID() == "0x19" || c->getComponentID() == "0x1E") { // de -12 a 12
-								int valor = juce::roundToInt((value - 64) * (12.0 / 64.0));
-								sl->setValue(valor, juce::dontSendNotification);
+								value = juce::roundToInt((value - 64) * (12.0 / 64.0));
 							}
-							else if (c->getComponentID() == "0x12" || c->getComponentID() == "0x14" || c->getComponentID() == "0x0D") { // de 0 a 127
-								sl->setValue(value, juce::dontSendNotification);
+							else if (c->getComponentID() == "0x12" || c->getComponentID() == "0x14") { // de 0 a 127
+								// do not modify
+							}
+							else if (c->getComponentID() == "0x0D") { // de 0 a 8k
+								value = juce::roundToInt(value * (8000.0 / 127.0));
 							}
 							else { // de 0 a 100
-								int valor = juce::roundToInt(value * (100.0 / 127.0));
-								sl->setValue(valor, juce::dontSendNotification);
+								value = juce::roundToInt(value * (100.0 / 127.0));
 							}
+							juce::Slider* sl = (juce::Slider*)c;
+							const juce::MessageManagerLock mmLock;
+							sl->setValue(value, juce::sendNotification);
 						}
 					}
 				}
@@ -510,11 +512,12 @@ void PluginAudioProcessor::parameterChanged(const juce::String& parameterID, flo
 			send_data = data & 0xFF;
 			WriteFile(hComm, &send_data, 1, &byteswritten, NULL);
 			send_data = (data >> 8) & 0xFF;
+			WriteFile(hComm, &send_data, 1, &byteswritten, NULL);
 		}
 		else {
 			send_data = (juce::juce_wchar)newValue;
+			WriteFile(hComm, &send_data, 1, &byteswritten, NULL);
 		}
-		WriteFile(hComm, &send_data, 1, &byteswritten, NULL);
 		break;
 	case 57: // 0x39
 		WriteFile(hComm, &send_data, 1, &byteswritten, NULL);
